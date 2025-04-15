@@ -10,7 +10,7 @@ This repo has a working base example of how SuperTokens is implemented as a Self
 2. Build SuperTokens Middleware API Server:
     - ``` cd st-middleware-api ```
     - ``` npm install ```
-    - ``` npm build ```
+    - ``` npm run build ```
 3. Start SuperTokens Backend and Core with Docker Compose
     - ``` docker compose up -d ```
 4. Start Vue Frontend App with Custom UI Login Form: 
