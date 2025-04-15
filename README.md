@@ -12,7 +12,7 @@ This repo has a working base example of how SuperTokens is implemented as a Self
     - ``` npm install ```
     - ``` npm build ```
 3. Start SuperTokens Backend and Core with Docker Compose
-    - ``` docker compose -d up ```
+    - ``` docker compose up -d ```
 4. Start Vue Frontend App with Custom UI Login Form: 
     - ``` cd vue-frontend ```
     - ``` npm run dev ```
