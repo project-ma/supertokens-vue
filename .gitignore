@@ -1,6 +1,6 @@
-./st-middleware-api/dist
-./st-middleware-api/node_modules
-./st-middleware-api/.env
+st-middleware-api/dist
+st-middleware-api/node_modules
+st-middleware-api/.env
 
-./supertokens-vue/dist
-./supertokens-vue/node_modules
+supertokens-vue/dist
+supertokens-vue/node_modules
