@@ -1,0 +1,16 @@
+{
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.5.0",
+    "express": "^5.0.1",
+    "supertokens-node": "^20.1.6"
+  },
+  "scripts": {
+    "build": "tsc --build"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.17",
+    "@types/express": "^5.0.1",
+    "typescript": "^5.8.3"
+  }
+}

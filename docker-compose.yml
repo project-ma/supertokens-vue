@@ -1,0 +1,55 @@
+networks:
+  a-net:
+    driver: bridge
+
+services:
+
+  st-middleware-api:
+    build:
+      context: ./st-middleware-api
+      dockerfile: Dockerfile
+    container_name: st-middleware-server
+    restart: on-failure
+    depends_on:
+      - st-core
+    ports:
+      - '3002:3002'
+    networks:
+      - a-net
+
+  st-core:
+    image: registry.supertokens.io/supertokens/supertokens-postgresql:9.2.2
+    depends_on:
+      st-db:
+        condition: service_healthy
+    ports:
+      - 3567:3567
+    environment:
+      POSTGRESQL_CONNECTION_URI: "postgresql://supertokens_user:somePassword@st-db:5432/supertokens"
+    networks:
+      - a-net
+    restart: unless-stopped
+    healthcheck:
+      test: >
+        bash -c 'exec 3<>/dev/tcp/127.0.0.1/3567 && echo -e "GET /hello HTTP/1.1\r\nhost: 127.0.0.1:3567\r\nConnection: close\r\n\r\n" >&3 && cat <&3 | grep "Hello"'
+      interval: 30s
+      timeout: 5s
+      retries: 5
+
+  st-db:
+      image: 'postgres:17.4'
+      environment:
+        POSTGRES_USER: supertokens_user 
+        POSTGRES_PASSWORD: somePassword 
+        POSTGRES_DB: supertokens
+        PGDATA: /var/lib/postgresql/data
+      ports:
+        - 5432:5432
+      networks:
+        - a-net
+      restart: unless-stopped
+      healthcheck:
+        test: ['CMD', 'pg_isready', '-U', 'supertokens_user', '-d', 'supertokens']
+        interval: 5s
+        timeout: 5s
+        retries: 5
