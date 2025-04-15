@@ -7,13 +7,16 @@ This repo has a working base example of how SuperTokens is implemented as a Self
 
 ### Build and Run locally
 1. Clone this Repo
-2. Build SuperTokens Middleware API Server: # cd st-middleware-api
+2. Build SuperTokens Middleware API Server:
+    - ``` cd st-middleware-api ```
     - ``` npm install ```
     - ``` npm build ```
 3. Start SuperTokens Backend and Core with Docker Compose
     - ``` docker compose -d up ```
-4. Start Vue Frontend App with Custom UI Login Form: # cd supertokens-vue
+4. Start Vue Frontend App with Custom UI Login Form: 
+    - ``` cd vue-frontend ```
     - ``` npm run dev ```
 5. Goto Web Browser http://localhost:5173/
+
 
 Checkout [SuperTokens](https://supertokens.com/) for complete documentation, features and recipes

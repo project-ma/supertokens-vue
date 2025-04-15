@@ -2,5 +2,5 @@ st-middleware-api/dist
 st-middleware-api/node_modules
 st-middleware-api/.env
 
-supertokens-vue/dist
-supertokens-vue/node_modules
+vue-frontend/dist
+vue-frontend/node_modules
