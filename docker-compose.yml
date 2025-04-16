@@ -4,6 +4,17 @@ networks:
 
 services:
 
+  vue-frontend:
+    build:
+      context: ./vue-frontend
+      dockerfile: Dockerfile
+    container_name: vue-frontend
+    restart: on-failure
+    ports:
+      - '7070:80'
+    networks:
+      - a-net
+  
   st-middleware-api:
     build:
       context: ./st-middleware-api
@@ -25,7 +36,7 @@ services:
     ports:
       - 3567:3567
     environment:
-      POSTGRESQL_CONNECTION_URI: "postgresql://supertokens_user:somePassword@st-db:5432/supertokens"
+      POSTGRESQL_CONNECTION_URI: "postgresql://supertokens_user:superPassword@st-db:5432/supertokens"
     networks:
       - a-net
     restart: unless-stopped
@@ -39,8 +50,8 @@ services:
   st-db:
       image: 'postgres:17.4'
       environment:
-        POSTGRES_USER: supertokens_user 
-        POSTGRES_PASSWORD: somePassword 
+        POSTGRES_USER: supertokens_user
+        POSTGRES_PASSWORD: superPassword 
         POSTGRES_DB: supertokens
         PGDATA: /var/lib/postgresql/data
       ports:
