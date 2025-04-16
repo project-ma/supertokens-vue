@@ -16,7 +16,7 @@ import 'dotenv/config'
 
 const apiPort = process.env.VUE_APP_API_PORT || 3002;
 const apiDomain = process.env.VUE_APP_API_URL || `http://localhost:${apiPort}`;
-const websitePort = process.env.VUE_APP_WEBSITE_PORT || 5173;
+const websitePort = process.env.VUE_APP_WEBSITE_PORT || 7070;
 const websiteDomain = process.env.VUE_APP_WEBSITE_URL || `http://localhost:${websitePort}`;
 
 supertokens.init({
