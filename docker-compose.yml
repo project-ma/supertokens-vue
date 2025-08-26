@@ -29,7 +29,7 @@ services:
       - a-net
 
   st-core:
-    image: registry.supertokens.io/supertokens/supertokens-postgresql:9.2.2
+    image: registry.supertokens.io/supertokens/supertokens-postgresql:11.0.5
     depends_on:
       st-db:
         condition: service_healthy

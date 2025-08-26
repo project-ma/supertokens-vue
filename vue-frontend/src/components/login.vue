@@ -102,7 +102,7 @@ export default {
               // sign in successful. The session tokens are automatically handled by
               // the frontend SDK.
               // window.location.href = "/login"
-              this.$router.push({path:'/login'})
+              this.$router.push({path:'/'})
           }
       } catch (err: any) {
           if (err.isSuperTokensGeneralError === true) {
